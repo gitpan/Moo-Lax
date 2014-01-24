@@ -9,16 +9,24 @@
 #
 package Moo::Lax;
 {
-  $Moo::Lax::VERSION = '0.10';
+  $Moo::Lax::VERSION = '0.11';
 }
 
 #ABSTRACT: By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+
+
+use strict;
+use warnings;
 
 require strictures;
 my $orig = \&strictures::import;
 require Moo;
 sub import {
-    *strictures::import = sub { *strictures::import = $orig };
+    no warnings 'redefine';
+    *strictures::import = sub {
+        strict->import; warnings->import;
+        *strictures::import = $orig;
+    };
     splice @_, 0, 1, 'Moo'; goto &Moo::import;
 }
 
@@ -36,7 +44,12 @@ Moo::Lax - By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is e
 
 =head1 VERSION
 
-version 0.10
+version 0.11
+
+=head1 SYNOPSIS
+
+  # instead of use Moo;
+  use Moo::Lax;
 
 =head1 AUTHOR
 

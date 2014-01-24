@@ -9,7 +9,7 @@
 #
 package oo::Lax;
 {
-  $oo::Lax::VERSION = '0.10';
+  $oo::Lax::VERSION = '0.11';
 }
  
 #ABSTRACT: By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the same as C<oo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
@@ -58,7 +58,7 @@ oo::Lax - By default oo turns all warnings to fatal warnings. C<oo::Lax> is exac
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 AUTHOR
 
