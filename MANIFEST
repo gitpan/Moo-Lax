@@ -1,0 +1,17 @@
+Build.PL
+Changes
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+README.pod
+dist.ini
+lib/Moo/Lax.pm
+lib/Moo/Role/Lax.pm
+lib/oo/Lax.pm
+t/00-compile.t
+t/01-basic.t
+t/02-basic.t
+t/release-distmeta.t
+t/release-pod-coverage.t
