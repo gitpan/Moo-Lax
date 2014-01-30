@@ -8,8 +8,8 @@ use warnings;
 
 BEGIN {
 my %configure_requires = (
-    'Module::Build::Tiny' => '0.030',
     'ExtUtils::MakeMaker' => '6.63_03',
+    'Module::Build::Tiny' => '0.030',
 );
 
 my @missing = grep {
@@ -80,6 +80,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "artistic_2",
   "NAME" => "Moo::Lax",
   "PREREQ_PM" => {
+    "Import::Into" => 1,
     "Moo" => 0
   },
   "TEST_REQUIRES" => {
@@ -88,7 +89,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.11",
+  "VERSION" => "0.12",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -99,6 +100,7 @@ my %FallbackPrereqs = (
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
+  "Import::Into" => 1,
   "Moo" => 0,
   "Test::More" => 0
 );

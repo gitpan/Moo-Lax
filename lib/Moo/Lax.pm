@@ -9,7 +9,7 @@
 #
 package Moo::Lax;
 {
-  $Moo::Lax::VERSION = '0.11';
+  $Moo::Lax::VERSION = '0.12';
 }
 
 #ABSTRACT: By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
@@ -18,16 +18,16 @@ package Moo::Lax;
 use strict;
 use warnings;
 
-require strictures;
-my $orig = \&strictures::import;
-require Moo;
+use Moo ();
+use Import::Into;
+
 sub import {
-    no warnings 'redefine';
-    *strictures::import = sub {
-        strict->import; warnings->import;
-        *strictures::import = $orig;
-    };
-    splice @_, 0, 1, 'Moo'; goto &Moo::import;
+    no warnings 'uninitialized';
+    my $previous_bits = ${^WARNING_BITS} & $warnings::DeadBits{all};
+    local $ENV{PERL_STRICTURES_EXTRA} = 0;
+    Moo->import::into(caller, @_);
+    ${^WARNING_BITS} &= ~$warnings::DeadBits{all} | $previous_bits;
+    return;
 }
 
 1
@@ -44,12 +44,22 @@ Moo::Lax - By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is e
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
   # instead of use Moo;
   use Moo::Lax;
+
+=head1 CONTRIBUTORS
+
+=over
+
+=item *
+
+Leon Timmermans
+
+=back
 
 =head1 AUTHOR
 

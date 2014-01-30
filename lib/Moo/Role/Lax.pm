@@ -9,7 +9,7 @@
 #
 package Moo::Role::Lax;
 {
-  $Moo::Role::Lax::VERSION = '0.11';
+  $Moo::Role::Lax::VERSION = '0.12';
 }
 
 #ABSTRACT: By default Moo::Role turns all warnings to fatal warnings. This module is exactly the same as Moo::Role, except that it doesn't turn all warnings to fatal warnings in the calling module.
@@ -18,16 +18,16 @@ package Moo::Role::Lax;
 use strict;
 use warnings;
 
-require strictures;
-my $orig = \&strictures::import;
-require Moo::Role;
+use Moo::Role ();
+use Import::Into;
+
 sub import {
-    no warnings 'redefine';
-    *strictures::import = sub {
-        strict->import; warnings->import;
-        *strictures::import = $orig;
-    };
-    splice @_, 0, 1, 'Moo::Role'; goto &Moo::Role::import;
+    no warnings 'uninitialized';
+    my $previous_bits = ${^WARNING_BITS} & $warnings::DeadBits{all};
+    local $ENV{PERL_STRICTURES_EXTRA} = 0;
+    Moo::Role->import::into(caller, @_);
+    ${^WARNING_BITS} &= ~$warnings::DeadBits{all} | $previous_bits;
+    return;
 }
 
 1
@@ -44,12 +44,22 @@ Moo::Role::Lax - By default Moo::Role turns all warnings to fatal warnings. This
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
   # instead of use Moo::Role;
   use Moo::Role::Lax;
+
+=head1 CONTRIBUTORS
+
+=over
+
+=item *
+
+Leon Timmermans
+
+=back
 
 =head1 AUTHOR
 

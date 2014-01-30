@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Moo-Lax,
-version 0.11:
+version 0.12:
 
   By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
 
