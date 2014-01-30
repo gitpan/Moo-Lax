@@ -9,12 +9,12 @@
 #
 package oo::Lax;
 {
-  $oo::Lax::VERSION = '0.14';
+  $oo::Lax::VERSION = '0.15';
 }
  
-#ABSTRACT: By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the same as C<oo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+#ABSTRACT: Loads oo without turning warnings to fatal.
 
-use strictures 1;
+
 use Moo::_Utils;
  
 sub moo {
@@ -54,11 +54,17 @@ __END__
 
 =head1 NAME
 
-oo::Lax - By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the same as C<oo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+oo::Lax - Loads oo without turning warnings to fatal.
 
 =head1 VERSION
 
-version 0.14
+version 0.15
+
+=head1 DESCRIPTION
+
+By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the
+same as C<oo>, except that it doesn't turn all warnings to fatal warnings in
+the calling module.
 
 =head1 AUTHOR
 
