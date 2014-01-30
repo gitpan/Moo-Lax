@@ -9,7 +9,7 @@
 #
 package Moo::Role::Lax;
 {
-  $Moo::Role::Lax::VERSION = '0.13';
+  $Moo::Role::Lax::VERSION = '0.14';
 }
 
 #ABSTRACT: Loads Moo::Role without turning warnings to fatal.
@@ -30,7 +30,7 @@ sub import {
     return;
 }
 
-1
+1;
 
 __END__
 
@@ -44,7 +44,7 @@ Moo::Role::Lax - Loads Moo::Role without turning warnings to fatal.
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 

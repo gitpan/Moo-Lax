@@ -9,7 +9,7 @@
 #
 package Moo::Lax;
 {
-  $Moo::Lax::VERSION = '0.13';
+  $Moo::Lax::VERSION = '0.14';
 }
 
 #ABSTRACT: Loads Moo without turning warnings to fatal.
@@ -30,7 +30,7 @@ sub import {
     return;
 }
 
-1
+1;
 
 __END__
 
@@ -44,7 +44,7 @@ Moo::Lax - Loads Moo without turning warnings to fatal.
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 
