@@ -9,10 +9,10 @@
 #
 package Moo::Role::Lax;
 {
-  $Moo::Role::Lax::VERSION = '0.12';
+  $Moo::Role::Lax::VERSION = '0.13';
 }
 
-#ABSTRACT: By default Moo::Role turns all warnings to fatal warnings. This module is exactly the same as Moo::Role, except that it doesn't turn all warnings to fatal warnings in the calling module.
+#ABSTRACT: Loads Moo::Role without turning warnings to fatal.
 
 
 use strict;
@@ -40,16 +40,22 @@ __END__
 
 =head1 NAME
 
-Moo::Role::Lax - By default Moo::Role turns all warnings to fatal warnings. This module is exactly the same as Moo::Role, except that it doesn't turn all warnings to fatal warnings in the calling module.
+Moo::Role::Lax - Loads Moo::Role without turning warnings to fatal.
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
   # instead of use Moo::Role;
   use Moo::Role::Lax;
+
+=head1 DESCRIPTION
+
+By default Moo::Role turns all warnings to fatal warnings. This module is
+exactly the same as Moo::Role, except that it doesn't turn all warnings to
+fatal warnings in the calling module.
 
 =head1 CONTRIBUTORS
 

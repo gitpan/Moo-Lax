@@ -68,7 +68,7 @@ use ExtUtils::MakeMaker 6.63_03;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.",
+  "ABSTRACT" => "Loads Moo without turning warnings to fatal.",
   "AUTHOR" => "Damien Krotkine <dams\@cpan.org>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
@@ -89,7 +89,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.12",
+  "VERSION" => "0.13",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -9,10 +9,10 @@
 #
 package Moo::Lax;
 {
-  $Moo::Lax::VERSION = '0.12';
+  $Moo::Lax::VERSION = '0.13';
 }
 
-#ABSTRACT: By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+#ABSTRACT: Loads Moo without turning warnings to fatal.
 
 
 use strict;
@@ -40,16 +40,22 @@ __END__
 
 =head1 NAME
 
-Moo::Lax - By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+Moo::Lax - Loads Moo without turning warnings to fatal.
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
   # instead of use Moo;
   use Moo::Lax;
+
+=head1 DESCRIPTION
+
+By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the
+same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in
+the calling module.
 
 =head1 CONTRIBUTORS
 
